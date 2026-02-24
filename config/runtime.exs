@@ -23,6 +23,18 @@ end
 config :ops_platform, OpsPlatformWeb.Endpoint,
   http: [port: String.to_integer(System.get_env("PORT", "4000"))]
 
+# Mercury Bank API
+if mercury_token = System.get_env("MERCURY_API_TOKEN") do
+  config :ops_platform, OpsPlatform.Finance.Mercury, api_token: mercury_token
+end
+
+# Google Drive
+if drive_token = System.get_env("GOOGLE_DRIVE_ACCESS_TOKEN") do
+  config :ops_platform, OpsPlatform.Finance.Drive,
+    access_token: drive_token,
+    folder_id: System.get_env("GOOGLE_DRIVE_FOLDER_ID")
+end
+
 if config_env() == :prod do
   database_url =
     System.get_env("DATABASE_URL") ||

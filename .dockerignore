@@ -1,0 +1,35 @@
+# Git
+.git
+.gitignore
+
+# Build artifacts
+_build
+deps
+
+# Node
+node_modules
+
+# Generated on crash
+erl_crash.dump
+
+# Static artifacts
+/priv/static/assets/
+/priv/static/cache_manifest.json
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# IDE
+.elixir_ls
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test
+/cover
+/tmp
