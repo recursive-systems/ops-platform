@@ -21,9 +21,10 @@ services:
       - "4000:4000"
     environment:
       DATABASE_URL: ecto://postgres:postgres@db/ops_platform_prod
-      SECRET_KEY_BASE: ${SECRET_KEY_BASE:-please-change-this-to-a-64-byte-secret-key-base-value-in-production}
-      PHX_HOST: localhost
+      SECRET_KEY_BASE: FIViRGkPxTIHGcUeIxLuJ1DziF7vyYglmzFYDEiNflFI1Izu+ZZdojGIZHHzMhFR
+      PHX_HOST: 100.125.46.74
       PORT: 4000
+      PHX_SERVER: true
     depends_on:
       db:
         condition: service_healthy

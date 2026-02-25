@@ -33,7 +33,7 @@ RUN mix assets.deploy
 RUN mix compile
 
 COPY config/runtime.exs config/
-COPY rel rel 2>/dev/null || true
+COPY rel rel
 
 RUN mix release
 
@@ -60,4 +60,4 @@ COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/ops_platform 
 
 USER nobody
 
-CMD ["/app/bin/server"]
+CMD ["/app/bin/ops_platform", "start"]
