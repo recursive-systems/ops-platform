@@ -21,7 +21,10 @@ if System.get_env("PHX_SERVER") do
 end
 
 config :ops_platform, OpsPlatformWeb.Endpoint,
-  http: [port: String.to_integer(System.get_env("PORT", "4000"))]
+  http: [
+    ip: {0, 0, 0, 0},
+    port: String.to_integer(System.get_env("PORT", "4000"))
+  ]
 
 # Mercury Bank API
 if mercury_token = System.get_env("MERCURY_API_TOKEN") do
